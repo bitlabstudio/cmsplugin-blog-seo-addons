@@ -68,10 +68,7 @@ EXTERNAL_APPS = [
     'django_nose',
     'sekizai',
     'menus',
-    'filer',
     'mptt',
-    'document_library',
-    'tagging',
 ]
 
 # If we leave this in EXTERNAL_APPS it will hide this app from coverage
