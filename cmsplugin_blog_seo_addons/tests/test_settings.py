@@ -69,6 +69,7 @@ EXTERNAL_APPS = [
     'sekizai',
     'menus',
     'mptt',
+    'tagging',
 ]
 
 # If we leave this in EXTERNAL_APPS it will hide this app from coverage

@@ -28,6 +28,7 @@ setup(
         'South',
         'django-cms',
         'cmsplugin-blog',
+        'tagging',
     ],
     tests_require=[
         'fabric',
