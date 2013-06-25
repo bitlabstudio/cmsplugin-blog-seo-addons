@@ -28,7 +28,7 @@ setup(
         'South',
         'django-cms',
         'cmsplugin-blog',
-        'tagging',
+        'django-tagging-translated',
     ],
     tests_require=[
         'fabric',

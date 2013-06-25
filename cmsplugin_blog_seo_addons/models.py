@@ -6,11 +6,17 @@ from cmsplugin_blog.models import Entry
 from django_libs.models_mixins import SimpleTranslationMixin
 
 
-class EntrySEOAddon(SimpleTranslationMixin, models.Model):
+class SEOAddon(SimpleTranslationMixin, models.Model):
+    """An SEO meta data addon for an cmsplugin_blog ``Entry``."""
+    pass
+
+
+class EntrySEOAddon(models.Model):
     """
     An intermediary model to attach seo addons to an ``Entry`` object.
 
-    :entry: The ``Entry`` instance this EntrySEOAddon belongs to.
+    :entry: The ``Entry`` instance the ``SEOAddon`` should be attached to.
+    :seoaddon: The ``SEOAddon`` instance that is attached to the ``Entry``.
 
     """
     entry = models.ForeignKey(
@@ -18,8 +24,14 @@ class EntrySEOAddon(SimpleTranslationMixin, models.Model):
         verbose_name=_('Entry'),
     )
 
+    seoaddon = models.ForeignKey(
+        SEOAddon,
+        verbose_name=_('SEO addon'),
+        blank=True, null=True,
+    )
 
-class EntrySEOAddonTranslation(models.Model):
+
+class SEOAddonTranslation(models.Model):
     """
     The translatable fields of the ``EntrySEOAddon``
 
@@ -33,9 +45,9 @@ class EntrySEOAddonTranslation(models.Model):
     )
 
     # needed by simple_translation
-    entryseoaddon = models.ForeignKey(
-        EntrySEOAddon,
-        verbose_name=_('EntrySEOAddon'),
+    seoaddon = models.ForeignKey(
+        SEOAddon,
+        verbose_name=_('SEO addon'),
     )
 
     language = models.CharField(

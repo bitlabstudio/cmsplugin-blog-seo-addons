@@ -3,7 +3,7 @@ import factory
 from cmsplugin_blog.models import Entry
 from django_libs.tests.factories import SimpleTranslationMixin
 
-from ..models import EntrySEOAddon, EntrySEOAddonTranslation
+from ..models import SEOAddon, SEOAddonTranslation
 
 
 class EntryFactory(factory.Factory):
@@ -11,25 +11,23 @@ class EntryFactory(factory.Factory):
     FACTORY_FOR = Entry
 
 
-class BaseEntrySEOAddonFactory(factory.Factory):
+class BaseSEOAddonFactory(factory.Factory):
     """Factory for the ``EntrySEOAddon`` model."""
-    FACTORY_FOR = EntrySEOAddon
-
-    entry = factory.SubFactory(EntryFactory)
+    FACTORY_FOR = SEOAddon
 
 
-class EntrySEOAddonFactory(SimpleTranslationMixin, BaseEntrySEOAddonFactory):
-    FACTORY_FOR = EntrySEOAddon
+class SEOAddonFactory(SimpleTranslationMixin, BaseSEOAddonFactory):
+    FACTORY_FOR = SEOAddon
 
     @staticmethod
     def _get_translation_factory_and_field():
-        return (EntrySEOAddonTranslationFactory, 'entryseoaddon')
+        return (SEOAddonTranslationFactory, 'seoaddon')
 
 
-class EntrySEOAddonTranslationFactory(factory.Factory):
+class SEOAddonTranslationFactory(factory.Factory):
     """Factory for the ``EntrySEOAddonTranslation`` model."""
-    FACTORY_FOR = EntrySEOAddonTranslation
+    FACTORY_FOR = SEOAddonTranslation
 
     meta_description = factory.Sequence(
         lambda n: 'Meta description {}'.format(n))
-    entryseoaddon = factory.SubFactory(BaseEntrySEOAddonFactory)
+    seoaddon = factory.SubFactory(BaseSEOAddonFactory)
