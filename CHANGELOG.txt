@@ -1,3 +1,10 @@
+=== ongoing ===
+
+- Added translatable seo addon models
+- Added inline admin for cmsplugin blog entries
+- Added template tag to display the meta description for blog entries
+
+
 === 0.1 ===
 
 Initial commit

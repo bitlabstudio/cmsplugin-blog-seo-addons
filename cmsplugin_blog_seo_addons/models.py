@@ -1,14 +1,22 @@
 """Models for the ``cmsplugin_blog_seo_addons`` app."""
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, get_language
 
 from cmsplugin_blog.models import Entry
 from django_libs.models_mixins import SimpleTranslationMixin
+from simple_translation.utils import get_preferred_translation_from_lang
 
 
 class SEOAddon(SimpleTranslationMixin, models.Model):
     """An SEO meta data addon for an cmsplugin_blog ``Entry``."""
-    pass
+
+    def __unicode__(self):
+        return self.get_translation().meta_description[:50]
+
+    def get_meta_description(self):
+        lang = get_language()
+        return get_preferred_translation_from_lang(
+            self, lang).get_meta_description()
 
 
 class EntrySEOAddon(models.Model):
@@ -54,3 +62,9 @@ class SEOAddonTranslation(models.Model):
         max_length=5,
         verbose_name=('Language'),
     )
+
+    def get_meta_description(self):
+        if self.meta_description:
+            if len(self.meta_description) > 160:
+                return '{}...'.format(self.meta_description[:160])
+            return self.meta_description

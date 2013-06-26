@@ -40,6 +40,7 @@ setup(
         'mock',
         'ipdb',
         'flake8',
+        'Pillow',
     ],
     test_suite='cmsplugin_blog_seo_addons.tests.runtests.runtests',
 )

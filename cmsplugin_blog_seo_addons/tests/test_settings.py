@@ -71,6 +71,9 @@ EXTERNAL_APPS = [
     'menus',
     'mptt',
     'tagging',
+    'cms.plugins.text',
+    'cms.plugins.link',
+    'cms.plugins.picture',
 ]
 
 # If we leave this in EXTERNAL_APPS it will hide this app from coverage

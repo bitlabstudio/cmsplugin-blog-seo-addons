@@ -10,3 +10,4 @@ django-coverage
 mock
 ipdb
 flake8
+Pillow
