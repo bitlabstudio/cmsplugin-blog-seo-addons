@@ -1,5 +1,6 @@
 === ongoing ===
 
+- Corrected get_meta_description on the SEOAddonTranslation model
 
 === 0.2 ===
 

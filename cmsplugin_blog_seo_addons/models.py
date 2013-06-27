@@ -65,6 +65,4 @@ class SEOAddonTranslation(models.Model):
 
     def get_meta_description(self):
         if self.meta_description:
-            if len(self.meta_description) > 160:
-                return '{}...'.format(self.meta_description[:160])
             return self.meta_description
