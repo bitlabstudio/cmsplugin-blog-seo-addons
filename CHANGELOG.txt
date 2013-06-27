@@ -1,5 +1,8 @@
 === ongoing ===
 
+
+=== 0.2.1 ===
+
 - Corrected get_meta_description on the SEOAddonTranslation model
 
 === 0.2 ===
