@@ -1,6 +1,8 @@
 === ongoing ===
 
 
+=== 0.2.2 ===
+
 - fixed bug with unicode and quotes
 
 === 0.2.1 ===
