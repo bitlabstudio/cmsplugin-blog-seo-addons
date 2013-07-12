@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Tests for the template tags of the ``cmsplugin_blog_seo_addons`` app."""
 from django.test import TestCase
 from django.test.client import RequestFactory
@@ -20,8 +21,8 @@ class GetEntryMetaDescriptionTestCase(TestCase):
         self.entry = self.entryaddon.entry
         self.placeholder = Placeholder.objects.create(slot='excerpt')
         self.sample_text = (
-            'An extra long string, that is much longer than 160 so it gets'
-            ' cut off properly in an attempt to raise the test coverage'
+            'An extra löng string, that is much longer than 160 so it gets'
+            ' cut off "properly" in an attempt to raise the test coverage'
             ' to one hundret percent. Should have used a lorem ipsum'
             ' generator for it.')
         self.text = Text.objects.create(
@@ -53,7 +54,8 @@ class GetEntryMetaDescriptionTestCase(TestCase):
 
         # Test if it outputs the content from the text plugin
         self.entryaddon.delete()
-        self.assertIn(get_entry_meta_description(self.entry, self.req)[:-3],
+        self.assertIn(get_entry_meta_description(
+                      self.entry, self.req)[:-3].replace('&quot;', '"'),
                       self.sample_text,
                       msg=('The description was not the one from the text'
                            ' plugin.'))

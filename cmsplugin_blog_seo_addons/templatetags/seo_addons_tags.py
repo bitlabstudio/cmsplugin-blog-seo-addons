@@ -27,7 +27,9 @@ def get_entry_meta_description(entry, request):
     context = Context({'request': request})
     html = render_placeholder(placeholder, context)
 
-    text = re.sub('<.*?>', '', html)
+    # we need to replace " with ' otherwise the html markup would break when
+    # the text contains ". E.g.: <meta content="This "Test" would fail.">
+    text = re.sub('<.*?>', '', html).encode('utf-8').replace('"', '&quot;')
 
     if len(text) > 160:
         return '{}...'.format(text[:160])
