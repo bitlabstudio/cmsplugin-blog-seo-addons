@@ -1,6 +1,8 @@
 === ongoing ===
 
 
+=== 0.2.3 ===
+
 - replaced ugly encode call with importing unicode_literals from future
 
 === 0.2.2 ===
