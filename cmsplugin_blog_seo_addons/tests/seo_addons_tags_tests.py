@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Tests for the template tags of the ``cmsplugin_blog_seo_addons`` app."""
+from __future__ import unicode_literals
+
 from django.test import TestCase
 from django.test.client import RequestFactory
 

@@ -1,6 +1,8 @@
 === ongoing ===
 
 
+- replaced ugly encode call with importing unicode_literals from future
+
 === 0.2.2 ===
 
 - fixed bug with unicode and quotes

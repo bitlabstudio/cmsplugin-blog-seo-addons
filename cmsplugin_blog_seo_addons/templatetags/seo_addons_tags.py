@@ -1,4 +1,6 @@
 """Template tags for the ``cmsplugin_blog_seo_addons`` app."""
+from __future__ import unicode_literals
+
 import re
 
 from django.template import Context, Library
@@ -29,7 +31,7 @@ def get_entry_meta_description(entry, request):
 
     # we need to replace " with ' otherwise the html markup would break when
     # the text contains ". E.g.: <meta content="This "Test" would fail.">
-    text = re.sub('<.*?>', '', html).encode('utf-8').replace('"', '&quot;')
+    text = re.sub('<.*?>', '', html).replace('"', '&quot;')
 
     if len(text) > 160:
         return '{}...'.format(text[:160])
